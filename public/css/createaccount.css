@@ -1,0 +1,107 @@
+:root {
+    --eggshell: #EADEDA;
+    --lred: #8A3033;
+    --dred: #823329;
+    --silver: #BFB8AD;
+    --slate: #3A606E;
+}
+
+body {
+    display: flex;  /*   can comment this out later/delete */
+    flex-direction: column; /*   can comment this out later/delete */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--eggshell);
+    color: black;
+    text-align: center;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: var(--eggshell);
+    overflow: hidden;
+    border-bottom: 3px solid var(--lred);
+    margin-bottom: 50px;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+nav span {
+    float: right;
+    clear: inherit;
+    display: block;
+    color: var(--lred);
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: var(--lred);
+    color: var(--eggshell);
+}
+
+nav a.login {
+    float: right;
+}
+
+footer{
+    text-align: center;
+    border-top: 3px solid var(--lred);
+    padding: 15px;
+    margin-top: auto; /*   can comment this out later/delete */
+}
+
+/* added */
+
+.create {
+    width: 400px; /* Increased max-width */
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid var(--dred);
+    border-radius: 10px;
+}
+
+.create label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.create input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid var(--dred);
+    border-radius: 5px;
+}
+
+.create button {
+    background-color: var(--dred);
+    color: white;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+.create button:hover {
+    background-color: var(--lred);
+}
+
+.create a{
+    color: var(--lred);
+}
+
+.wrong {
+    text-decoration: solid;
+    color: var(--dred);
+}

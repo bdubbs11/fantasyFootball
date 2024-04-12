@@ -1,0 +1,100 @@
+:root {
+    --eggshell: #EADEDA;
+    --lred: #8A3033;
+    --dred: #823329;
+    --silver: #BFB8AD;
+    --slate: #3A606E;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--eggshell);
+    color: black;
+    text-align: center;
+}
+
+nav {
+    background-color: var(--eggshell);
+    overflow: hidden;
+    border-bottom: 3px solid var(--lred);
+    margin-bottom: 50px;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+nav span {
+    float: right;
+    clear: inherit;
+    display: block;
+    color: var(--lred);
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: var(--lred);
+    color: var(--eggshell);
+}
+
+nav a.login {
+    float: right;
+}
+
+footer{
+    text-align: center;
+    border-top: 3px solid var(--lred);
+    padding: 15px;
+}
+
+/* copy everything above  */
+
+.scoring-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.offensive-scoring,
+.defensive-scoring {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--dred);
+    border-radius: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.box{
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--dred);
+    border-radius: 10px;
+    margin: 10px;
+    box-sizing: border-box;   
+}
+.bigger{
+    font-size: 120%;
+    text-decoration: underline;
+}
+h2{
+    text-decoration: underline;
+}
+
+.fieldgoals{
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--dred);
+    border-radius: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+
+}
