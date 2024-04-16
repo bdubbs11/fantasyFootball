@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/createaccount.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/createaccount.css') }}">
     <title>Wilson Fantasy Football</title>
 </head>
 <body>
