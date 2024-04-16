@@ -38,14 +38,14 @@ Route::get('/rules', function () {
 // enter team page
 Route::get('/enterteam', function () {
     return view('enterteam');
-}) -> name('enterteam');// ->middleware('admin');
+}) -> name('enterteam')->middleware('admin');
 
 // submitting to the database
 Route::post('/enterteam/submit', [EnterTeamController::class, 'store']);
 
 
 //update scores page 
-Route::get('/updatescores', [UpdateScoresController::class, 'view'])->name('updatescores');// ->middleware('admin');
+Route::get('/updatescores', [UpdateScoresController::class, 'view'])->name('updatescores')->middleware('admin');
 Route::post('updatescores/submit', [UpdateScoresController::class, 'store']);
 
 // need a controller for updating scores 

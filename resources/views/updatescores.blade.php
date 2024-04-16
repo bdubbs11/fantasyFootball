@@ -30,23 +30,26 @@
     @if($selectedPlayer == '')
         <h1>Update Scores</h1>
     @else
-        <h1>Update Scores for {{ $selectedPlayer }} - {{ $selectedPosition }} - {{ $selectedTeam }}</h1>
+        <h1 name="testData" >Update Scores for {{ $selectedPlayer }} - {{ $selectedPosition }} - {{ $selectedTeam }}</h1>
     @endif
 
 
 <form action="/updatescores/submit" method ="post">
     @csrf
+    
     <div class="autocomplete" style="width:600px;">
-        <input id="myInput" type="text" name="searchablePlayers" placeholder="Search For Player..." onclick="toggleDropdown()" value=" {{ old('searchablePlayers') }}">
+        <label for="selectedPlayers"></label>
+        <input id="myInput" type="text" name="selectedPlayers" placeholder="Search For Player..." onclick="toggleDropdown()" value=" {{ old('searchablePlayers') }}">
         <div id="playerDropdown" class="dropdown-content">
             @foreach ($players as $player)
-                <a href="#"  onclick="selectPlayer('{{ $player->name }} - {{ $player->position }} - {{ $player->team }}')">{{ $player->name }} - {{ $player->position }} - {{ $player->team }}</a>
+                <a href="#" name = "searchablePlayers" onclick="selectPlayer('{{ $player->name }} - {{ $player->position }} - {{ $player->team }}')">{{ $player->name }} - {{ $player->position }} - {{ $player->team }}</a>
             @endforeach
         </div> <!-- I want to get the selected player posistion and then say ok display offense if guy is an offensive position -->
     </div>
     
-    <div class="round">
-        Round: <select name="round" id="team">  <!-- determines how far they made it how much points are worth -->
+    <div class="roundForm">
+                <label for ="round" > Round: </label>
+                <select name="round" id="round">  <!-- determines how far they made it how much points are worth -->
                 <!-- what round -->
                 <option value="" disabled selected>What round of playoffs</option>
 
@@ -57,9 +60,9 @@
             </select>
 
             <span>Did the team win?</span> <br>
-            <input type="radio" id="teamwinyes" name="teamwin" value="winyes">
+            <input type="radio" id="teamwinyes" name="teamwin" value="winyes" required>
             <label for="teamwinyes"> Yes</label>
-            <input type="radio" id="teamwinno" name="teamwin" value="winno">
+            <input type="radio" id="teamwinno" name="teamwin" value="winno" required>
             <label for="teamwinno"> No</label>
     </div>
 
@@ -95,7 +98,11 @@
     <h3>Please select a player so you can input their points</h3>
 
     @endif
+
+    
     <!-- who won the superbowl -->
+
+    @php /* @if (isset($_POST['round']) && $_POST['round'] === 'Superbowl') */ @endphp
     <div class="sbwin">
         <span>Did they win the Superbowl?</span> <br>
         <input type="radio" id="sbteamwinyes" name="sbteamwin" value="sbwinyes">
@@ -104,12 +111,22 @@
         <label for="sbteamwinno"> No</label>
 
     </div>
+    @php /* @endif  */ @endphp
 
 
 
     <div class="btnsubmit">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onclick="plswork()">
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif 
 
 </form>
 
@@ -127,18 +144,13 @@ function selectPlayer(playerInfo) {
     document.getElementById("myInput").value = playerInfo;
     document.getElementById("playerDropdown").classList.remove("show");
 
-    // player
-    var player = playerInfo.split("-")[0].trim();
+     // player
+     var player = playerInfo.split("-")[0].trim();
     //position
      var position = playerInfo.split("-")[1].trim();
      // team
      var team = playerInfo.split("-")[2].trim();
      window.location.href = window.location.pathname + '?selectedPlayer=' + player + '&selectedPosition=' + position + '&selectedTeam=' + team;
-
-
-    //positionSelected(playerInfo.split("-")[1].trim())// gets the position
-    // console.log(playerInfo.split("-")[1].trim()); // gets the position
-    // return playerInfo;
 }
 
 // Hide dropdown when clicking outside of search bar and dropdown
@@ -150,5 +162,24 @@ document.addEventListener("click", function(event) {
     }
 });
 
+// Filter player list based on input
+document.getElementById("myInput").addEventListener("input", function() {
+    var input, filter, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase().trim(); // Ignore leading and trailing spaces
+    div = document.getElementById("playerDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue.toUpperCase().indexOf(filter.replace(/^ +/, '')) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+});
 
+function plswork(){
+    console.log("i was pressed")
+}
 </script>

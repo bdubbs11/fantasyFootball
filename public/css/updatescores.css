@@ -112,14 +112,14 @@ input[type=text] {
 
 /* under drop down */
 
-.round{
+.roundForm{
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
 
 }
-.round select,
-.round input[type="search"] {
+.roundForm select,
+.roundForm input[type="search"] {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;

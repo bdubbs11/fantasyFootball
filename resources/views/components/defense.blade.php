@@ -34,19 +34,19 @@
 
             <div class="row">
                 <div class="col">
-                    <label for="Safety">Safeties:</label>
+                    <label for="safety">Safeties:</label>
                 </div>
                 <div class="col">
-                    <input type="text" id="Safety" name="Safety" placeholder="0..." required>
+                    <input type="text" id="safety" name="safety" placeholder="0..." required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <label for="touchdown">Touchdowns:</label>
+                    <label for="touchdowndef">Touchdowns:</label>
                 </div>
                 <div class="col">
-                    <input type="text" id="touchdown" name="touchdown" placeholder="0..." required>
+                    <input type="text" id="touchdowndef" name="touchdowndef" placeholder="0..." required>
                 </div>
             </div>
 

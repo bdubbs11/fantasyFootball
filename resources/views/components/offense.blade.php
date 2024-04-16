@@ -28,7 +28,7 @@
                             <label for="into">Ints Thrown:</label> <!-- ints -->
                         </div>
                         <div class="col">
-                            <input type="text" id="into" name="into" placeholder="0..." required>
+                            <input type="text" id="intsO" name="intsO" placeholder="0..." required>
                         </div>                            
                     </div>
                 </div>
@@ -36,6 +36,14 @@
                 <div class="rec">
                     <p>Receiving</p>
                     <!-- receiving yards / tds -->
+                    <div class="row">
+                        <div class="col">
+                            <label for="receptions">Receptions:</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="receptions" name="receptions" placeholder="5..." required>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <label for="receivingyards">Yards:</label>

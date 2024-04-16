@@ -10,7 +10,8 @@ class EnterTeamController extends Controller
 {
     public function store(){
         //validate the input
-        request()->validate([
+       //$attributes =  
+       request()->validate([
              // form one fantasy team
              'yname' => 'required|string|max:255',
              'tname' => 'required|string|max:255',
@@ -41,6 +42,7 @@ class EnterTeamController extends Controller
              'defense1team' => 'required|string|max:255',
              'sb1team' => 'required|string|max:255',
         ]);
+       // dd($attributes);
         
         // create fantasy team
         $fantasy = Fantasy::create([
